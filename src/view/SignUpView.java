@@ -195,8 +195,6 @@ public class SignUpView extends javax.swing.JFrame {
                 modelUser.setPassword_User(password);
                 if (daoUser.insertUser(modelUser)) {
                     JOptionPane.showMessageDialog(null, "Registered successfully");
-                }else{
-                    JOptionPane.showMessageDialog(null, "Some information is invalid");
                 }
             }
             clean();
