@@ -46,10 +46,11 @@ public class DaoUser {
     private boolean userValidation(ModelUser modelUser) {
         
         boolean userValidation = false;
-        String sql = "SELECT * FROM usertb WHERE Name_User = ?";
+        String sql = "SELECT * FROM usertb WHERE Name_User = ? OR Email_User = ?";
         try {
             PreparedStatement stmt = connectioUserDAO.prepareStatement(sql);
             stmt.setString(1, modelUser.getName_User());
+            stmt.setString(2, modelUser.getEmail_User());
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
                 userValidation = true;
